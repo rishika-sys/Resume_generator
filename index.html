@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Resume_Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- <form action="#"> -->
+<div class="container" id="cv-form">
+<h1 class="text-center my-2">Resume Generator</h1>
+<!-- emoji with the help of "windows"+"." cmd -->
+<p class="text-center ">
+  with ❤ Rishika Singh
+  </p>
+  <div class="row">
+    <div class="col-md-6">
+       <h3>Personal Information</h3>
+       <div class="form-group">
+         <label for="nameField" >Your Full Name</label>
+            <input required type="search" id="nameField" placeholder="Enter here" class="form-control"></input>
+            <div class="invalid-feedback">
+           Please enter your full name
+          </div>
+       </div>
+       <div class="form-group">
+         <label for ="contactField">Your Contact Number</label>
+            <input type="search" id="contactField" type="text" placeholder="Enter here" class="form-control"></input>
+       </div>
+       <div class="form-group">
+         <label for ="addField">Your Address</label>
+         <!-- write for label and then give id as well with the same name. -->
+          <textarea id="addField" placeholder="Enter here" name="Address" id="addtext" class="form-control"></textarea>
+       </div>
+       <p class="text-secondary my-3">
+         Important Links
+       </p>
+
+       <div class="form-group">
+         <label for ="fbField">Facebook</label>
+            <input required type="search" id="fbField" type="text" placeholder="Enter here" class="form-control"></input>
+       </div>
+       <div class="form-group">
+         <label for ="linkedField">Linkedin</label>
+            <input required type="search"  id="linkedField" type="text" placeholder="Enter here" class="form-control"></input>
+       </div>
+       <div class="form-group">
+         <label for ="gitField">Github</label>
+            <input  required type="search"  id="gitField" type="text" placeholder="Enter here" class="form-control"></input>
+       </div>
+    </div>
+
+    <!-- Second section -->
+
+    <div class="col-md-6">
+       <h3>Professional Information</h3>
+
+       <div class="form-group" id="aq">
+         <label for="aqField">Academic Qualifications</label>
+            <textarea  name="text1" placeholder="Enter here" class="form-control aqField" required></textarea>
+       </div>
+       <div class="container text-center my-2" id="aqAddBtn">
+       <button onclick="addNeAq()" class="btn btn-primary btn-sm">Add</button>
+          <!-- <button onclick="removeNeAq(textAdd)" class="btn btn-danger btn-sm">Remove</button> -->
+       </div>
+       <div class="container text-center my-2 " id="aqRemBtn">
+          <button onclick="remNeAq()" class="btn btn-primary btn-sm">Remove</button>
+       </div>
+
+
+       <!-- new dynamic text area -->
+       <div class="form-group my-2 " id="we" >
+         <!-- <h3>Projects</h3> -->
+         <label for="weField">Work Experience </label>
+          <textarea name="textAdd" placeholder="Enter here" class="form-control weField" required></textarea>
+       </div>
+       <!-- added a button -->
+       <div class="container text-center my-2" id="weAddBtn">
+          <button onclick="addNeWEF()" class="btn btn-primary btn-sm">Add</button>
+       </div>
+       <!-- delete button -->
+       <div class="container text-center my-2 " id="weRemBtn">
+          <button onclick="remNeWE()" class="btn btn-primary btn-sm">Remove</button>
+       </div>
+       <div class="form-group my-2" id="skill">
+         <!-- <h3>Projects</h3> -->
+         <label for ="skillField">Skills </label>
+          <input type="search" placeholder="Enter here" class="form-control skillField " required></input>
+       </div>
+       <!-- added a button -->
+       <div class="container text-center my-2" id="skillAddBtn">
+          <button onclick="addSkillBtn()"class="btn btn-primary btn-sm">Add</button>
+       </div>
+       <!-- delete button -->
+       <div class="container text-center my-2 " id="skillRemBtn">
+          <button onclick="remNeSkill()" class="btn btn-primary btn-sm">Remove</button>
+       </div>
+       <div class="form-group my-2" id="achieve" >
+         <!-- <h3>Projects</h3> -->
+         <label for ="achField">Achievements </label>
+          <input  type="search" placeholder="Enter here" class="form-control achField "></input>
+       </div>
+       <!-- added a button -->
+       <div class="container text-center my-2" id="achieveAddBtn">
+          <button onclick="addAchieveBtn()" class="btn btn-primary btn-sm">Add</button>
+       </div>
+       <!-- delete button -->
+       <div class="container text-center my-2 " id="achRemBtn">
+          <button onclick="remNeAch()" class="btn btn-primary btn-sm">Remove</button>
+       </div>
+         <!-- </form> -->
+    </div>
+
+    <div class="container text-center mt-3">
+    <button type="submit" onclick="generateRes()" class="btn-primary btn btn-lg">Generate Resume</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Resume template -->
+<div class="container-fluid py-2 " id="cv-template">
+  <div class="row">
+    <div class="col-md-4 text-center" id="color">
+<!-- First column -->
+<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"class="img-fluid py-2 imagge" alt="default pic">
+<p id="nameT">
+  Rishika Singh
+</p><p id="contactT">
+  9110964313
+</p><p id="addT">
+  CD/740/Site-5 ,Sector-2,Ranchi
+</p>
+<p>
+  <a id="fbT" href="#1" >https://www.facebook.com</a>
+</p>
+<p>
+  <a id="linT" href="#2">https://www.linkedin.com</a>
+</p>
+<p>
+  <a id="gitT" href="#3">https://www.github.com</a>
+</p>
+<hr></hr>
+    </div>
+
+    <div class="col-md-8 py-3">
+      <!-- Second Column -->
+<h1 class="text-center" id="nameT2" style="font-weight:980">Rishika Singh</h1>
+<!-- Cards-Bootstrap -->
+<div class="card mt-4">
+  <div class="card-header " id="color">
+<h3 id="aqT">Academic Qualifications</h3>
+</div>
+<div class="card-body">
+  <ul id="aqT2">
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+  </ul>
+</div>
+</div>
+<div class="card mt-4">
+<div class="card-header" id="color">
+<h3 id="weT">Work Experience</h3>
+</div>
+<div class="card-body">
+<ul id="weT2">
+  <li>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+  </li>
+  <li>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+  </li>
+  <li>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+  </li>
+</ul>
+</div>
+</div>
+<div class="card mt-4">
+<div class="card-header " id="color">
+<h3 id="skillT">Skills</h3>
+</div>
+<div class="card-body">
+  <ul id="skillT2">
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+  </ul>
+</div>
+</div>
+<div class="card mt-4">
+<div class="card-header " id="color">
+<h3 id="achT">Achievements</h3>
+</div>
+<div class="card-body">
+  <ul id="achT2">
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elite.
+    </li>
+  </ul>
+</div>
+</div>
+  <button onclick="printResume()" class=" btn btn-light btn-lg mt-5" id="color">Print Resume</button>
+</body>
+</div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

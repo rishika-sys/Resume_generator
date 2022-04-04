@@ -1,0 +1,18 @@
+#cv-template{
+  display: none;
+}
+h1{
+  text-align: center;
+  /* color:#F8C0C8; */
+}
+.imagge{
+  border-radius: 50%;
+  max-width: 20%;
+  max-height: 30%;
+}
+/* .background{
+  background-color: aqua;
+} */
+#color{
+  background-color: aqua;
+}
